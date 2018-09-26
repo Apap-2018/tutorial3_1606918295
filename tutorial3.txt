@@ -1,0 +1,54 @@
+# Membuat Controller dan Fungsi Add
+
+4. Jalankan program dan buka
+localhost:8080/pilot/add?id=1&licenseNumber=1234&name=Jono&flyHour=20
+Pertanyaan 1?: apakah hasilnya? Jika error, tuliskan penjelasan Anda.
+Hasilnya muncul tampilan dengan isi "Data Berhasil Dimasukkan"
+
+localhost:8080/pilot/add?id=1&licenseNumber=1234&name=Jono
+Pertanyaan 2: ?apakah hasilnya? Jika error, tuliskan penjelasan Anda.
+Muncul pesan error
+"Whitelabel Error Page
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+Wed Sep 26 15:24:50 ICT 2018
+There was an unexpected error (type=Bad Request, status=400).
+Required int parameter 'flyHour' is not present"
+Hal ini terjadi karena pada method add harus ada parameter flyHour yang harus disertakan,
+sedangkan saat dijalankan tidak disertakan parameter flyHour.
+
+# Method View by licenseNumber
+
+3.Jalankan program dan buka
+localhost:8080/pilot/add?id=1&licenseNumber=1234&name=Jono&flyHour=20
+localhost:8080/pilot/view?licenseNumber=1234
+Pertanyaan 3?: apakah data Pilot tersebut muncul? Jika tidak, mengapa?
+Ya, muncul. Halaman berisi
+"1
+1234
+Jono
+20"
+
+4. Coba matikan program dan jalankan kembali serta buka
+localhost:8080/pilot/view?licenseNumber=1234
+Pertanyaan 4?: apakah data Pilot tersebut muncul? Jika tidak, mengapa?
+Tidak, muncul pesan error
+Whitelabel Error Page
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+Wed Sep 26 15:38:39 ICT 2018
+There was an unexpected error (type=Internal Server Error, status=500).
+An error happened during template parsing (template: "class path resource [templates/view-pilot.html]")
+Hal ini terjadi karena data tidak disimpan terlebih dahulu, melainkan langsung di view.
+Sehingga data tidak akan muncul karena tidak ada yg disimpan.
+
+3. Jalankan program dan buka
+localhost:8080/pilot/add?id=1&licenseNumber=1234&name=Jono&flyHour=20
+localhost:8080/pilot/viewall
+Pertanyaan 5?: apakah data Pilot tersebut muncul?
+Ya, muncul
+
+4. Coba tambahkan data Pilot lainnya dengan data yang berbeda, lalu buka
+localhost:8080/pilot/viewall
+Pertanyaan 6?: Apakah semua data Pilot muncul?
+Ya, muncul
